@@ -7,13 +7,11 @@
 
 <meta name="description" content="Interested in Mathematical Optimization & Data-Driven Decision Making." />
 
+<link href="https://fonts.googleapis.com/css?family=Noto Sans" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" type="text/css" />
 
 <style type="text/css">
-
-}
-/* --- BẮT ĐẦU PHẦN CSS --- */
 body {
 	background-color: #FFF;
 	text-align: left;
@@ -21,6 +19,7 @@ body {
 	line-height: 1.6;
 	font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
 	font-kerning: normal;
+	font-feature-settings: "kern" 1, "liga" 1, "clig" 1;
 	text-rendering: optimizeLegibility;
 	color: rgb(42,50,65);
 	margin: auto;
@@ -39,14 +38,18 @@ h2 {
 	margin-bottom: 1em;
 }
 h1 { font-size: 26pt; }
+
 a {
     color: #000;
     text-decoration: underline;
+    background-image: none;
 }
 a:hover {
     color: #0870a9;
 }
-#menu-bar a, #menu-bar a:link, #menu-bar a:visited {
+#menu-bar a,
+#menu-bar a:link,
+#menu-bar a:visited {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     color: #000 !important;
     text-decoration: none;
@@ -54,17 +57,22 @@ a:hover {
     display: inline-block;
     padding: 2px 6px;
 }
-#menu-bar a:hover, #menu-bar a:focus, #menu-bar a:active, #menu-bar a:focus-visible {
+#menu-bar a:hover,
+#menu-bar a:focus,
+#menu-bar a:active,
+#menu-bar a:focus-visible {
     color: #0870a9 !important;
     text-decoration: underline;
     outline: none;
 }
 #menu-bar a.current { color: #000 !important; }
 #menu-bar a.current:hover { color: #0870a9 !important; }
+
 img {
     max-width: 100%;
     height: auto;
 }
+/* This is for publications, but can be reused */
 .pub-list {
     list-style: none;
     padding-left: 0;
@@ -77,21 +85,17 @@ img {
 }
 .pub-left { flex: 1 1 auto; }
 .pub-right { white-space: nowrap; text-align: left; font-size: 0.95em; }
-.pub-venue { font-style: italic; }
-.pub-authors { font-size: 0.95em; }
-.pub-list li { padding: 6px 0; }
 
 @media (max-width: 480px) {
   .pub-row {
     flex-direction: column;
-    align-items: flex-start;
+    align-items-flex-start;
     gap: 4px;
   }
   .pub-right {
     white-space: normal;
   }
 }
-/* --- KẾT THÚC PHẦN CSS --- */
 </style>
 </head>
 <body>
@@ -108,6 +112,8 @@ img {
         &nbsp;&nbsp;&nbsp;&nbsp;
         <b> <a href="#achievements">Achievements</a> </b>
         &nbsp;&nbsp;&nbsp;&nbsp;
+        <b> <a href="pdf/final cv.pdf" target="_blank">CV</a> </b>
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <b> <a href="#contact">Contact</a> </b>
     </div>
 
@@ -116,22 +122,18 @@ img {
     <img style="float: left; margin-right: 50px; padding-bottom: 10px; width: 200px; border-radius: 5px;" src="images/my-avatar.jpg" alt="photo" />
 
     <p>
-        I am a student pursuing a Bachelor of Science in Data Science in Economics and Business at the National Economics University. My core interests lie at the intersection of Mathematical Optimization and Machine Learning.
+        I am a student pursuing a Bachelor of Science in Data Science in Economics and Business at the National Economics University. My core interests lie at the intersection of <strong>Mathematical Optimization</strong> and <strong>Machine Learning</strong>.
     </p>
     <p>
-        Currently, I am a Research Assistant at the DATAOPT Lab, where I conduct research on optimization techniques and their applications in data-driven decision-making. I am passionate about developing and implementing mathematical models to analyze large-scale datasets and solve complex problems in economics and business.
+        Currently, I am a Research Assistant at the <strong>DATAOPT Lab</strong>, where I conduct research on optimization techniques and their applications in data-driven decision-making. I am passionate about developing and implementing mathematical models to analyze large-scale datasets and solve complex problems in economics and business.
     </p>
 
-    <p>
-        <a href="pdf/final cv.pdf" target="_blank"><strong>View Full Resume &rarr;</strong></a>
-    </p>
-
-    <br style="clear: both;" />
+    <div style="clear: both;"></div>
 
     <a name="experience"></a>
     <h2 style="width: 100%; text-align: left;"> Experience </h2>
         <h3>Research Assistant, DATAOPT Lab - National Economics University</h3>
-        <p style="font-style: italic;">July 2024 - Now</p>
+        <p style="font-style: italic; margin-top: -1em;">July 2024 - Now</p>
         <ul>
             <li>Conduct research on optimization techniques and their applications in machine learning and data-driven decision making.</li>
             <li>Develop and implement mathematical models and algorithms for analyzing large-scale datasets in economics and business contexts.</li>
@@ -139,7 +141,7 @@ img {
         </ul>
 
         <h3>Teaching Assistant (Tutor), Python for Data Science - National Economics University</h3>
-        <p style="font-style: italic;">August 2025 - Now</p>
+        <p style="font-style: italic; margin-top: -1em;">August 2025 - Now</p>
         <ul>
             <li>Assist the course instructor by preparing homework assignments based on lectures and course materials.</li>
             <li>Review and grade student submissions, providing detailed solutions and feedback.</li>
@@ -148,28 +150,28 @@ img {
 
     <a name="publications"></a>
     <h2 style="width: 100%; text-align: left;"> Publications </h2>
-        <p>
-            Information on my publications is pending and will be updated here soon.
-        </p>
+    <p style="margin-left: 20px;">
+        Information on my publications is pending and will be updated here soon.
+    </p>
 
     <a name="achievements"></a>
-    <h2 style="width: 100%; text-align: left;"> Certifications & Achievements </h2>
-        <ul>
-            <li><b>Top 10</b> - Hanoi Mathematical Modeling Competition (2025)</li>
-            <li><b>Outstanding Youth Union Member Award</b> - National Economics University (2024)</li>
-            <li><b>Academic Encouragement Scholarship (Excellent Level)</b> - Faculty of Mathematical Economics (2024)</li>
-            <li><b>Consolation Prize in Mathematics</b> - Hai Phong City-Level Competition (2023)</li>
-            <li><b>IELTS 7.0</b> Certificate (2022)</li>
-        </ul>
+    <h2 style="width: 100%; text-align: left;"> Achievements </h2>
+    <ul style="margin-left: 20px;">
+        <li><b>Top 10</b> - Hanoi Mathematical Modeling Competition (2025)</li>
+        <li><b>Outstanding Youth Union Member Award</b> - National Economics University (2024)</li>
+        <li><b>Academic Encouragement Scholarship (Excellent Level)</b> - Faculty of Mathematical Economics (2024)</li>
+        <li><b>Consolation Prize in Mathematics</b> - Hai Phong City-Level Competition (2023)</li>
+        <li><b>IELTS 7.0</b> Certificate (2022)</li>
+    </ul>
 
 
     <a name="contact"></a>
     <h2 style="width: 100%; text-align: left;"> Contact </h2>
-        <ul>
-            <li>Email: duonghieung0901@gmail.com</li>
-            <li>LinkedIn: <a href="https://linkedin.com/in/kidwithbigdreams/">linkedin.com/in/kidwithbigdreams</a></li>
-            <li>GitHub: <a href="https://github.com/dhieu0901">github.com/dhieu0901</a></li>
-        </ul>
+    <ul style="margin-left: 20px;">
+        <li>Email: duonghieung0901@gmail.com</li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/kidwithbigdreams/">linkedin.com/in/kidwithbigdreams</a></li>
+        <li>GitHub: <a href="https://github.com/dhieu0901">github.com/dhieu0901</a></li>
+    </ul>
 
 </body>
 </html>
