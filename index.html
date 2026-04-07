@@ -84,14 +84,15 @@ img {
     display: flex;
     justify-content: space-between;
     gap: 14px;
+    margin-bottom: 15px;
 }
 .pub-left { flex: 1 1 auto; }
-.pub-right { white-space: nowrap; text-align: left; font-size: 0.95em; }
+.pub-right { white-space: nowrap; text-align: left; font-size: 0.95em; font-style: italic; }
 
 @media (max-width: 480px) {
   .pub-row {
     flex-direction: column;
-    align-items-flex-start;
+    align-items: flex-start;
     gap: 4px;
   }
   .pub-right {
@@ -144,19 +145,16 @@ img {
         <h3>Research Assistant, <a href="https://fda.neu.edu.vn/dataopt/" target="_blank">DATAOPT Lab</a> - National Economics University</h3>
         <p style="font-style: italic; margin-top: -1em;">July 2024 - January 2026</p>
         <ul>
-            <li>Studied and implemented optimization algorithms through reading and analyzing research papers (e.g., convex optimization, gradient-based methods).</li>
-            <li>Reproduced and experimented with optimization techniques to understand their theoretical properties and practical performance.</li>
-            <li>Participated in academic discussions on numerical methods and applied mathematics, strengthening theoretical foundations in optimization.</li>
-            <li>Collaborated with research members to explore applications of optimization in machine learning and data-driven decision making.</li>
+            <li>Investigated and implemented mathematical optimization algorithms (e.g., convex optimization, gradient-based methods) from research papers.</li>
+            <li>Reproduced experiments to evaluate the theoretical properties and practical performance of numerical methods in machine learning contexts.</li>
+            <li>Actively engaged in academic discussions to strengthen foundations in applied mathematics and data-driven decision making.</li>
         </ul>
 
         <h3>Research Assistant, Project: "Does Network Position Cause Scholarly Success?"</h3>
-        <p style="font-style: italic; margin-top: -1em;">Spring 2026</p>
+        <p style="font-style: italic; margin-top: -1em;">Spring 2026 <br> <span style="font-size: 0.9em; font-weight: normal;">with Prof. Mike Nguyen (University of Southern California) and Prof. Minh Nguyen (Florida Atlantic University)</span></p>
         <ul>
-            <li>Collected and curated datasets on academic collaboration and scholarly productivity for empirical research.</li>
-            <li>Cleaned and structured large-scale data to ensure consistency and readiness for statistical and network analysis.</li>
-            <li>Validated data quality by cross-checking multiple sources and resolving inconsistencies.</li>
-            <li>Collaborated with the research team to refine datasets and support subsequent empirical and network-based analysis.</li>
+            <li>Curated, cleaned, and structured large-scale academic collaboration datasets, resolving inconsistencies across multiple sources to ensure data validity.</li>
+            <li>Collaborated with the research team to support empirical and network-based analysis by providing high-quality, analysis-ready datasets.</li>
         </ul>
 
         <h3>Teaching Assistant (Tutor), Python for Data Science & Power BI - National Economics University</h3>
@@ -173,19 +171,35 @@ img {
         <h3>Hanoi Temperature Forecasting System <a href="https://github.com/dhieu0901/Machine-Learning-Group-5-Final-Project" target="_blank">[GitHub]</a></h3>
         <p style="font-style: italic; margin-top: -1em;">Late 2025</p>
         <ul>
-            <li>Developed an end-to-end machine learning pipeline to forecast Hanoi's daily temperature (5-day horizon) using 10+ years of historical weather data.</li>
-            <li>Engineered 90+ features (lag variables, rolling statistics, STL decomposition, FFT, calendar effects) to capture temporal patterns and seasonality.</li>
-            <li>Trained and optimized a multi-output CatBoost model using Optuna, achieving strong predictive performance (R² ≈ 0.84 on test set).</li>
-            <li>Designed an MLOps pipeline with data drift detection (PSI, KS-test) and a champion-challenger retraining strategy.</li>
-            <li>Integrated model explainability using SHAP and deployed an interactive forecasting system via Streamlit with backtesting and real-time prediction modes.</li>
+            <li>Developed an end-to-end ML pipeline to forecast Hanoi's daily temperature (5-day horizon) using 10+ years of historical weather data.</li>
+            <li>Engineered 90+ features (lag variables, rolling statistics, STL decomposition, FFT) to capture temporal patterns and seasonality.</li>
+            <li>Trained a multi-output CatBoost model using Optuna for hyperparameter tuning, achieving R² ≈ 0.84.</li>
+            <li>Deployed an interactive Streamlit application integrated with SHAP for model explainability and an MLOps pipeline for data drift detection (PSI, KS-test).</li>
             <li><strong>Technologies:</strong> Python, Pandas, Scikit-learn, CatBoost, Optuna, SHAP, ONNX, Streamlit</li>
+        </ul>
+
+        <h3>Multimodal AI in Enterprise Robotic Process Automation</h3>
+        <p style="font-style: italic; margin-top: -1em;">Spring 2026</p>
+        <ul>
+            <li>Designed a modular two-stage framework for multimodal information extraction and entity resolution to process unstructured business inputs.</li>
+            <li>Integrated OCR and ASR (PhoWhisper) for data transcription, coupled with a zero-shot LLM (Gemini) for structured entity extraction.</li>
+            <li>Developed a hybrid retrieval mechanism combining dense semantic representations (Sentence-BERT) with sparse lexical matching (BM25) via Reciprocal Rank Fusion (RRF).</li>
+            <li>Achieved F1-scores of 0.91 (visual) and 0.85 (acoustic) under noisy conditions, maintaining a Recall@5 of 0.93 on a 50,000-SKU enterprise catalog.</li>
         </ul>
 
     <a name="publications"></a>
     <h2 style="width: 100%; text-align: left;"> Publications </h2>
-    <p style="margin-left: 20px;">
-        Information on my publications is pending and will be updated here soon.
-    </p>
+    
+    <ul class="pub-list" style="margin-left: 20px;">
+        <li class="pub-row">
+            <div class="pub-left">
+                <strong>Promoting circular consumption behavior: Factors influencing Vietnamese Generation Z's intention to extend the lifespan of personal electronic devices</strong><br>
+                Le Thu Thao, <b>Nguyen Duong Hieu</b>, Pham Phuong Trinh, Nguyen Minh Tung<br>
+                <i>22nd International Conference on Socio-economic and Environmental Issues in Development (ICSEED 2026)</i>
+            </div>
+            <div class="pub-right">2026</div>
+        </li>
+    </ul>
 
     <a name="achievements"></a>
     <h2 style="width: 100%; text-align: left;"> Achievements </h2>
@@ -200,9 +214,9 @@ img {
     <a name="contact"></a>
     <h2 style="width: 100%; text-align: left;"> Contact </h2>
     <ul style="margin-left: 20px;">
-        <li>Email: duonghieung0901@gmail.com</li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/kidwithbigdreams">linkedin.com/in/kidwithbigdreams</a></li>
-        <li>GitHub: <a href="https://github.com/dhieu0901">github.com/dhieu0901</a></li>
+        <li>Email: <a href="mailto:duonghieung0901@gmail.com">duonghieung0901@gmail.com</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/kidwithbigdreams" target="_blank">linkedin.com/in/kidwithbigdreams</a></li>
+        <li>GitHub: <a href="https://github.com/dhieu0901" target="_blank">github.com/dhieu0901</a></li>
     </ul>
 
 </body>
