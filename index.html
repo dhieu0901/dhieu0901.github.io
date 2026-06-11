@@ -1,223 +1,686 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nguyen Duong Hieu</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nguyen Duong Hieu</title>
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <meta name="description" content="Data Science researcher interested in Causal Inference, Machine Learning, and OOD Generalization." />
 
-<link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-<meta name="description" content="Interested in Mathematical Optimization & Data-Driven Decision Making." />
+  <style>
+    /* ================================================
+       TOKEN SYSTEM
+       Palette: white + slate-900 text + sky-700 accent
+       ================================================ */
+    :root {
+      --bg:             #FFFFFF;
+      --bg-subtle:      #F8FAFC;
+      --text:           #0F172A;
+      --text-muted:     #475569;
+      --text-light:     #94A3B8;
+      --accent:         #0369A1;
+      --accent-bg:      #EFF6FF;
+      --accent-border:  #BFDBFE;
+      --border:         #E2E8F0;
+      --tag-bg:         #F1F5F9;
+      --tag-text:       #64748B;
+      --font-serif:     'Source Serif 4', Georgia, serif;
+      --font-sans:      'Inter', -apple-system, sans-serif;
+      --font-mono:      'SFMono-Regular', 'Consolas', monospace;
+      --max-w:          740px;
+    }
 
-<link href="https://fonts.googleapis.com/css?family=Noto Sans" rel="stylesheet" type="text/css" />
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" type="text/css" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" type="text/css" />
+    /* ================================================
+       BASE
+       ================================================ */
+    *, *::before, *::after { box-sizing: border-box; }
 
-<style type="text/css">
-body {
-	background-color: #FFF;
-	text-align: left;
-	font-size: 17px;
-	line-height: 1.6;
-	font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-	font-kerning: normal;
-	font-feature-settings: "kern" 1, "liga" 1, "clig" 1;
-	text-rendering: optimizeLegibility;
-	color: rgb(42,50,65);
-	margin: auto;
-    max-width: 1220px;
-    padding: 0 24px;
-}
-h1, h2, h3 {
-	font-weight: normal;
-	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
-h2 {
-	border-bottom-style: solid;
-	font-size: 20pt;
-	border-color: #EEE;
-	margin-top: 1.5em;
-	margin-bottom: 1em;
-}
-h1 { font-size: 26pt; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.72;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
 
-a {
-    color: #000;
-    text-decoration: underline;
-    background-image: none;
-}
-a:hover {
-    color: #0870a9;
-}
-#menu-bar a,
-#menu-bar a:link,
-#menu-bar a:visited {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    color: #000 !important;
-    text-decoration: none;
-    transition: color 0.15s ease-in-out;
-    display: inline-block;
-    padding: 2px 6px;
-}
-#menu-bar a:hover,
-#menu-bar a:focus,
-#menu-bar a:active,
-#menu-bar a:focus-visible {
-    color: #0870a9 !important;
-    text-decoration: underline;
-    outline: none;
-}
-#menu-bar a.current { color: #000 !important; }
-#menu-bar a.current:hover { color: #0870a9 !important; }
+    a { color: var(--accent); text-decoration: none; transition: opacity .15s; }
+    a:hover { opacity: .72; text-decoration: underline; }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-/* This is for publications, but can be reused */
-.pub-list {
-    list-style: none;
-    padding-left: 0;
-    margin-left: 0;
-}
-.pub-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 14px;
-    margin-bottom: 15px;
-}
-.pub-left { flex: 1 1 auto; }
-.pub-right { white-space: nowrap; text-align: left; font-size: 0.95em; font-style: italic; }
+    ul { padding-left: 1.2em; margin: .4em 0; }
+    li { margin-bottom: .25em; }
+    p  { margin: .55em 0; }
 
-@media (max-width: 480px) {
-  .pub-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-  .pub-right {
-    white-space: normal;
-  }
-}
-</style>
+    /* ================================================
+       PAGE WRAPPER
+       ================================================ */
+    .page {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 52px 24px 88px;
+    }
+
+    /* ================================================
+       HEADER
+       ================================================ */
+    .site-header { text-align: center; margin-bottom: 36px; }
+
+    .site-header h1 {
+      font-family: var(--font-serif);
+      font-size: 2.15rem;
+      font-weight: 600;
+      letter-spacing: -.015em;
+      margin: 0 0 6px;
+      color: var(--text);
+    }
+
+    .tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: .9rem;
+      color: var(--text-muted);
+      margin: 0 0 22px;
+      letter-spacing: .01em;
+    }
+
+    /* Nav */
+    .nav {
+      display: flex; flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px 4px;
+      font-size: .75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+    }
+    .nav a {
+      color: var(--text-muted);
+      padding: 3px 9px;
+      border-radius: 4px;
+      transition: color .15s, background .15s;
+      text-decoration: none;
+    }
+    .nav a:hover {
+      color: var(--accent);
+      background: var(--accent-bg);
+      opacity: 1;
+      text-decoration: none;
+    }
+    .nav-sep { color: var(--border); line-height: 2; user-select: none; }
+
+    .rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 40px;
+    }
+
+    /* ================================================
+       BIO
+       ================================================ */
+    .bio {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      margin-bottom: 52px;
+    }
+
+    .bio-photo { flex-shrink: 0; }
+    .bio-photo img {
+      width: 150px; height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .bio-text { flex: 1; }
+    .bio-text p { font-size: .93rem; color: var(--text); }
+
+    /* Research interest chips */
+    .chips {
+      display: flex; flex-wrap: wrap;
+      gap: 6px; margin-top: 14px;
+    }
+    .chip {
+      background: var(--accent-bg);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+      padding: 2px 11px;
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .cv-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 16px;
+      font-size: .84rem;
+      font-weight: 600;
+      color: var(--accent);
+      border: 1.5px solid var(--accent-border);
+      background: var(--accent-bg);
+      padding: 5px 14px;
+      border-radius: 5px;
+      transition: background .15s;
+      text-decoration: none;
+    }
+    .cv-link:hover {
+      background: #DBEAFE;
+      opacity: 1; text-decoration: none;
+    }
+
+    /* ================================================
+       SECTION HEADING  — signature element:
+       small-caps + tracked + accent bar prefix
+       ================================================ */
+    .section { margin-bottom: 44px; }
+
+    .section h2 {
+      font-family: var(--font-sans);
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--text-muted);
+      margin: 0 0 20px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section h2::before {
+      content: '';
+      display: block;
+      width: 18px; height: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ================================================
+       TIMELINE  (dot-and-line = DAG node metaphor)
+       ================================================ */
+    .timeline { display: flex; flex-direction: column; }
+
+    .tl-item {
+      display: flex;
+      gap: 18px;
+      padding-bottom: 26px;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+
+    /* Spine */
+    .tl-spine {
+      display: flex; flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 14px;
+    }
+    .tl-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 1.5px var(--accent);
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .tl-line {
+      width: 1.5px;
+      background: var(--border);
+      flex: 1;
+      margin-top: 5px;
+    }
+    .tl-item:last-child .tl-line { display: none; }
+
+    /* Content */
+    .tl-body { flex: 1; min-width: 0; }
+
+    .tl-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tl-role {
+      font-weight: 600;
+      font-size: .9rem;
+      color: var(--text);
+    }
+    .tl-org {
+      font-size: .86rem;
+      color: var(--text-muted);
+    }
+    .tl-org a { color: var(--text-muted); }
+    .tl-org a:hover { color: var(--accent); }
+
+    .tl-date {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--text-light);
+      white-space: nowrap;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      padding: 1px 7px;
+      border-radius: 3px;
+    }
+    .tl-sub {
+      font-size: .8rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin: 2px 0 5px;
+    }
+    .tl-body ul { margin: 5px 0 0; padding-left: 1.1em; }
+    .tl-body li {
+      font-size: .86rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    /* ================================================
+       PROJECTS  — left-border card, hover accent
+       ================================================ */
+    .proj-list { display: flex; flex-direction: column; gap: 22px; }
+
+    .proj-item {
+      border-left: 3px solid var(--border);
+      padding-left: 16px;
+      transition: border-color .2s;
+    }
+    .proj-item:hover { border-left-color: var(--accent); }
+
+    .proj-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
+    }
+    .proj-title {
+      font-weight: 600;
+      font-size: .9rem;
+    }
+    .proj-title a { color: var(--text); }
+    .proj-title a:hover { color: var(--accent); text-decoration: none; }
+
+    .proj-item ul { margin: 6px 0 8px; padding-left: 1.1em; }
+    .proj-item li {
+      font-size: .86rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    /* Tech tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: .71rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 1px 7px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+    }
+
+    /* ================================================
+       PUBLICATIONS
+       ================================================ */
+    .pub-list { list-style: none; padding: 0; margin: 0; }
+    .pub-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .pub-item:first-child { border-top: 1px solid var(--border); }
+    .pub-main { flex: 1; min-width: 0; }
+    .pub-title {
+      font-weight: 600;
+      font-size: .87rem;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .pub-authors { font-size: .82rem; color: var(--text-muted); margin-bottom: 2px; }
+    .pub-venue { font-size: .79rem; color: var(--text-light); font-style: italic; }
+    .pub-year {
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+
+    /* ================================================
+       ACHIEVEMENTS
+       ================================================ */
+    .ach-list { list-style: none; padding: 0; margin: 0; }
+    .ach-item {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 7px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: .87rem;
+    }
+    .ach-item:last-child { border-bottom: none; }
+    .ach-year {
+      font-family: var(--font-mono);
+      font-size: .73rem;
+      color: var(--text-light);
+      white-space: nowrap;
+      min-width: 34px;
+    }
+    .ach-text { color: var(--text-muted); }
+    .ach-text strong { color: var(--text); font-weight: 600; }
+
+    /* ================================================
+       CONTACT
+       ================================================ */
+    .contact-list { list-style: none; padding: 0; margin: 0; }
+    .contact-list li {
+      font-size: .87rem;
+      color: var(--text-muted);
+      padding: 4px 0;
+    }
+    .contact-list a { color: var(--accent); }
+
+    /* ================================================
+       FOOTER
+       ================================================ */
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: .73rem;
+      color: var(--text-light);
+    }
+
+    /* ================================================
+       RESPONSIVE
+       ================================================ */
+    @media (max-width: 540px) {
+      .bio            { flex-direction: column; gap: 20px; }
+      .bio-photo img  { width: 110px; height: 110px; }
+      .tl-header      { flex-direction: column; gap: 3px; }
+      .proj-header    { flex-direction: column; gap: 3px; }
+      .site-header h1 { font-size: 1.7rem; }
+      .page           { padding: 36px 18px 60px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
 </head>
 <body>
-    <h1 style="text-align:center">Nguyen Duong Hieu</h1>
+<div class="page">
 
-    <hr style="width: 100%">
+  <!-- ======= HEADER ======= -->
+  <header class="site-header">
+    <h1>Nguyen Duong Hieu</h1>
+    <p class="tagline">Causal Inference · Machine Learning · Trustworthy AI</p>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <span class="nav-sep">·</span>
+      <a href="#experience">Experience</a>
+      <span class="nav-sep">·</span>
+      <a href="#projects">Projects</a>
+      <span class="nav-sep">·</span>
+      <a href="#publications">Publications</a>
+      <span class="nav-sep">·</span>
+      <a href="#achievements">Achievements</a>
+      <span class="nav-sep">·</span>
+      <a href="pdf/Nguyen Duong Hieu.pdf" target="_blank">CV</a>
+      <span class="nav-sep">·</span>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <div id="menu-bar" class="headerlinks" style="text-align:center">
-        <b> <a href="index.html" class="current">Home</a> </b>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <b> <a href="#experience">Experience</a> </b>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <b> <a href="#projects">Projects</a> </b>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <b> <a href="#publications">Publications</a> </b>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <b> <a href="#achievements">Achievements</a> </b>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <b> <a href="pdf/final cv.pdf" target="_blank">CV</a> </b>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <b> <a href="#contact">Contact</a> </b>
+  <hr class="rule" />
+
+  <!-- ======= BIO ======= -->
+  <section id="about" class="bio">
+    <div class="bio-photo">
+      <img src="images/my-avatar.jpg" alt="Nguyen Duong Hieu" />
     </div>
+    <div class="bio-text">
+      <p>
+        I am a Data Science student at the <strong>National Economics University, Hanoi</strong>,
+        with a growing research focus on <strong>Causal Inference</strong> and its intersection
+        with Machine Learning — particularly causal representation learning,
+        out-of-distribution (OOD) generalization, and trustworthy AI systems.
+      </p>
+      <p>
+        My background spans mathematical optimization, probabilistic ML, and applied AI pipelines.
+        I am currently a student researcher at <strong>DAAI Lab (NEU)</strong> and a research
+        assistant on a causal network analysis project with collaborators at USC and FAU.
+      </p>
+      <div class="chips">
+        <span class="chip">Causal Inference</span>
+        <span class="chip">Representation Learning</span>
+        <span class="chip">OOD Generalization</span>
+        <span class="chip">Probabilistic ML</span>
+        <span class="chip">Trustworthy AI</span>
+      </div>
+      <a class="cv-link" href="pdf/Nguyen Duong Hieu.pdf" target="_blank">
+        View Full CV →
+      </a>
+    </div>
+  </section>
 
-    <hr style="width: 100%">
+  <!-- ======= EXPERIENCE ======= -->
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <div class="timeline">
 
-    <img style="float: left; margin-right: 50px; padding-bottom: 10px; width: 200px; border-radius: 5px;" src="images/my-avatar.jpg" alt="photo" />
-
-    <p>
-        I am a student pursuing a Bachelor of Science in Data Science in Economics and Business at the National Economics University. My core interests lie at the intersection of <strong>Mathematical Optimization</strong> and <strong>Machine Learning</strong>.
-    </p>
-    <p>
-        With a deep passion for data and artificial intelligence, I am currently focusing on the frontiers of <strong>Large Language Models (LLMs)</strong> and <strong>Multimodal AI</strong>. Building upon my research background, I am eager to develop and apply advanced machine learning algorithms and optimization techniques to analyze large-scale datasets, thereby solving complex, real-world problems in economics and business.
-    </p>
-
-    <p>
-        <a href="pdf/final cv.pdf" target="_blank"><strong>View Full Resume &rarr;</strong></a>
-    </p>
-
-	<div style="clear: both;"></div>
-
-    <a name="experience"></a>
-    <h2 style="width: 100%; text-align: left;"> Experience </h2>
-        
-        <h3>Research Assistant, <a href="https://fda.neu.edu.vn/dataopt/" target="_blank">DATAOPT Lab</a> - National Economics University</h3>
-        <p style="font-style: italic; margin-top: -1em;">July 2024 - January 2026</p>
-        <ul>
-            <li>Investigated and implemented mathematical optimization algorithms (e.g., convex optimization, gradient-based methods) from research papers.</li>
-            <li>Reproduced experiments to evaluate the theoretical properties and practical performance of numerical methods in machine learning contexts.</li>
-            <li>Actively engaged in academic discussions to strengthen foundations in applied mathematics and data-driven decision making.</li>
-        </ul>
-
-        <h3>Research Assistant, Project: "Does Network Position Cause Scholarly Success?"</h3>
-        <p style="font-style: italic; margin-top: -1em;">Spring 2026 <br> <span style="font-size: 0.9em; font-weight: normal;">with Prof. Mike Nguyen (University of Southern California) and Prof. Minh Nguyen (Florida Atlantic University)</span></p>
-        <ul>
-            <li>Curated, cleaned, and structured large-scale academic collaboration datasets, resolving inconsistencies across multiple sources to ensure data validity.</li>
-            <li>Collaborated with the research team to support empirical and network-based analysis by providing high-quality, analysis-ready datasets.</li>
-        </ul>
-
-        <h3>Teaching Assistant (Tutor), Python for Data Science & Power BI - National Economics University</h3>
-        <p style="font-style: italic; margin-top: -1em;">August 2025 - December 2025</p>
-        <ul>
-            <li>Assisted the course instructor in preparing assignments and teaching materials for Python and Power BI courses.</li>
-            <li>Evaluated and graded student submissions, providing detailed and constructive feedback to improve understanding.</li>
-            <li>Supported students by explaining concepts in Python programming and data analysis, enhancing their practical skills in data science applications.</li>
-        </ul>
-
-    <a name="projects"></a>
-    <h2 style="width: 100%; text-align: left;"> Projects </h2>
-        
-        <h3>Hanoi Temperature Forecasting System <a href="https://github.com/dhieu0901/Machine-Learning-Group-5-Final-Project" target="_blank">[GitHub]</a></h3>
-        <p style="font-style: italic; margin-top: -1em;">Late 2025</p>
-        <ul>
-            <li>Developed an end-to-end ML pipeline to forecast Hanoi's daily temperature (5-day horizon) using 10+ years of historical weather data.</li>
-            <li>Engineered 90+ features (lag variables, rolling statistics, STL decomposition, FFT) to capture temporal patterns and seasonality.</li>
-            <li>Trained a multi-output CatBoost model using Optuna for hyperparameter tuning, achieving R² ≈ 0.84.</li>
-            <li>Deployed an interactive Streamlit application integrated with SHAP for model explainability and an MLOps pipeline for data drift detection (PSI, KS-test).</li>
-            <li><strong>Technologies:</strong> Python, Pandas, Scikit-learn, CatBoost, Optuna, SHAP, ONNX, Streamlit</li>
-        </ul>
-
-        <h3>Multimodal AI in Enterprise Robotic Process Automation</h3>
-        <p style="font-style: italic; margin-top: -1em;">Spring 2026</p>
-        <ul>
-            <li>Designed a modular two-stage framework for multimodal information extraction and entity resolution to process unstructured business inputs.</li>
-            <li>Integrated OCR and ASR (PhoWhisper) for data transcription, coupled with a zero-shot LLM (Gemini) for structured entity extraction.</li>
-            <li>Developed a hybrid retrieval mechanism combining dense semantic representations (Sentence-BERT) with sparse lexical matching (BM25) via Reciprocal Rank Fusion (RRF).</li>
-            <li>Achieved F1-scores of 0.91 (visual) and 0.85 (acoustic) under noisy conditions, maintaining a Recall@5 of 0.93 on a 50,000-SKU enterprise catalog.</li>
-        </ul>
-
-    <a name="publications"></a>
-    <h2 style="width: 100%; text-align: left;"> Publications </h2>
-    
-    <ul class="pub-list" style="margin-left: 20px;">
-        <li class="pub-row">
-            <div class="pub-left">
-                <strong>Promoting circular consumption behavior: Factors influencing Vietnamese Generation Z's intention to extend the lifespan of personal electronic devices</strong><br>
-                Le Thu Thao, <b>Nguyen Duong Hieu</b>, Pham Phuong Trinh, Nguyen Minh Tung<br>
-                <i>22nd International Conference on Socio-economic and Environmental Issues in Development (ICSEED 2026)</i>
+      <div class="tl-item">
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Trainee, AI in Action Talent Training Program</div>
+              <div class="tl-org">Vingroup</div>
             </div>
-            <div class="pub-right">2026</div>
-        </li>
-    </ul>
+            <span class="tl-date">Summer 2026</span>
+          </div>
+          <ul>
+            <li>Selected for an intensive, hands-on training program focused on practical Artificial Intelligence applications.</li>
+          </ul>
+        </div>
+      </div>
 
-    <a name="achievements"></a>
-    <h2 style="width: 100%; text-align: left;"> Achievements </h2>
-    <ul style="margin-left: 20px;">
-        <li><b>Top 10</b> - Hanoi Mathematical Modeling Competition (2025)</li>
-        <li><b>Academic Encouragement Scholarship (Excellent)</b> - Faculty of Mathematical Economics, National Economics University (2024)</li>
-        <li><b>Outstanding Youth Union Member Award</b> - National Economics University (2024)</li>
-        <li><b>Consolation Prize</b> - Hai Phong City Mathematics Competition (2023)</li>
-        <li><b>IELTS 7.0</b> (2022)</li>
-    </ul>
+      <div class="tl-item">
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Student Researcher</div>
+              <div class="tl-org">DAAI Lab — National Economics University</div>
+            </div>
+            <span class="tl-date">Jan 2026 – Now</span>
+          </div>
+          <ul>
+            <li>Researched and developed ML/AI algorithms applied to real-world enterprise problems, with a primary focus on multimodal information extraction and intelligent business process automation.</li>
+            <li>Designed and implemented end-to-end AI pipelines integrating NLP, computer vision, and retrieval techniques to deliver production-ready solutions for enterprise clients.</li>
+          </ul>
+        </div>
+      </div>
 
-    <a name="contact"></a>
-    <h2 style="width: 100%; text-align: left;"> Contact </h2>
-    <ul style="margin-left: 20px;">
-        <li>Email: <a href="mailto:duonghieung0901@gmail.com">duonghieung0901@gmail.com</a></li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/kidwithbigdreams" target="_blank">linkedin.com/in/kidwithbigdreams</a></li>
-        <li>GitHub: <a href="https://github.com/dhieu0901" target="_blank">github.com/dhieu0901</a></li>
-    </ul>
+      <div class="tl-item">
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Research Assistant</div>
+              <div class="tl-org">Project: "Does Network Position Cause Scholarly Success?"</div>
+            </div>
+            <span class="tl-date">Spring 2026</span>
+          </div>
+          <p class="tl-sub">with Prof. Mike Nguyen (USC) · Prof. Minh Nguyen (FAU)</p>
+          <ul>
+            <li>Curated and structured large-scale academic collaboration network datasets to support causal analysis of network position effects on scholarly productivity.</li>
+            <li>Provided analysis-ready datasets enabling the team's empirical investigation of structural causes of research outcomes.</li>
+          </ul>
+        </div>
+      </div>
 
+      <div class="tl-item">
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Teaching Assistant — Python for Data Science &amp; Power BI</div>
+              <div class="tl-org">National Economics University</div>
+            </div>
+            <span class="tl-date">Aug – Dec 2025</span>
+          </div>
+          <ul>
+            <li>Supported students and prepared course materials for Python and Power BI courses, covering programming fundamentals and data analysis.</li>
+            <li>Evaluated and graded submissions, providing detailed feedback to improve understanding.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Student Researcher</div>
+              <div class="tl-org"><a href="https://fda.neu.edu.vn/dataopt/" target="_blank">DATAOPT Lab</a> — National Economics University</div>
+            </div>
+            <span class="tl-date">Jul 2024 – Jan 2026</span>
+          </div>
+          <ul>
+            <li>Researched and implemented mathematical optimization algorithms (e.g., convex optimization) and evaluated their practical performance in ML contexts through experiment reproduction.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======= PROJECTS ======= -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="proj-list">
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <div class="proj-title">Multimodal AI in Enterprise Robotic Process Automation</div>
+          <span class="tl-date">Spring 2026</span>
+        </div>
+        <ul>
+          <li>Designed a modular two-stage <strong>agentic workflow framework</strong> integrating OCR and ASR (PhoWhisper) with a zero-shot LLM (Gemini) for structured entity extraction from unstructured business inputs.</li>
+          <li>Developed a <strong>hybrid retrieval mechanism</strong> combining Sentence-BERT (dense) and BM25 (sparse) via Reciprocal Rank Fusion (RRF).</li>
+          <li>Achieved F1-scores of 0.91 (visual) and 0.85 (acoustic) under noisy conditions; Recall@5 of 0.93 on a 50,000-SKU enterprise catalog.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Gemini API</span>
+          <span class="tag">PhoWhisper</span>
+          <span class="tag">Sentence-BERT</span>
+          <span class="tag">BM25</span>
+          <span class="tag">RRF</span>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <div class="proj-title">
+            <a href="https://github.com/dhieu0901/Machine-Learning-Group-5-Final-Project" target="_blank">
+              Hanoi Temperature Forecasting System ↗
+            </a>
+          </div>
+          <span class="tl-date">Late 2025</span>
+        </div>
+        <ul>
+          <li>Developed an end-to-end ML pipeline forecasting Hanoi's daily temperature (5-day horizon) from 10+ years of data, engineering 90+ features (lag variables, STL decomposition, FFT).</li>
+          <li>Trained a multi-output CatBoost model with Optuna tuning (R² ≈ 0.84); deployed a Streamlit app with SHAP explainability and MLOps drift detection (PSI, KS-test).</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">CatBoost</span>
+          <span class="tag">Optuna</span>
+          <span class="tag">SHAP</span>
+          <span class="tag">ONNX</span>
+          <span class="tag">Streamlit</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======= PUBLICATIONS ======= -->
+  <section id="publications" class="section">
+    <h2>Publications</h2>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-main">
+          <div class="pub-title">Promoting circular consumption behavior: Factors influencing Vietnamese Generation Z's intention to extend the lifespan of personal electronic devices</div>
+          <div class="pub-authors">Le Thu Thao, <strong>Nguyen Duong Hieu</strong>, Pham Phuong Trinh, Nguyen Minh Tung</div>
+          <div class="pub-venue">22nd International Conference on Socio-economic and Environmental Issues in Development (ICSEED 2026)</div>
+        </div>
+        <div class="pub-year">2026</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ======= ACHIEVEMENTS ======= -->
+  <section id="achievements" class="section">
+    <h2>Achievements</h2>
+    <ul class="ach-list">
+      <li class="ach-item">
+        <span class="ach-year">2025</span>
+        <span class="ach-text"><strong>Top 10</strong> — Hanoi Mathematical Modeling Competition</span>
+      </li>
+      <li class="ach-item">
+        <span class="ach-year">2024</span>
+        <span class="ach-text"><strong>Academic Encouragement Scholarship (Excellent)</strong> — Faculty of Mathematical Economics, NEU</span>
+      </li>
+      <li class="ach-item">
+        <span class="ach-year">2024</span>
+        <span class="ach-text"><strong>Outstanding Youth Union Member Award</strong> — National Economics University</span>
+      </li>
+      <li class="ach-item">
+        <span class="ach-year">2023</span>
+        <span class="ach-text"><strong>Consolation Prize</strong> — Hai Phong City Mathematics Competition</span>
+      </li>
+      <li class="ach-item">
+        <span class="ach-year">2022</span>
+        <span class="ach-text"><strong>IELTS 7.0</strong></span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ======= CONTACT ======= -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li>Email: <a href="mailto:duonghieung0901@gmail.com">duonghieung0901@gmail.com</a></li>
+      <li>LinkedIn: <a href="https://linkedin.com/in/kidwithbigdreams" target="_blank">linkedin.com/in/kidwithbigdreams</a></li>
+      <li>GitHub: <a href="https://github.com/dhieu0901" target="_blank">github.com/dhieu0901</a></li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    Nguyen Duong Hieu &nbsp;·&nbsp; Hanoi, Vietnam
+  </footer>
+
+</div>
 </body>
 </html>
