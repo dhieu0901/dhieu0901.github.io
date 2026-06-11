@@ -132,8 +132,8 @@
 
     .bio-photo { flex-shrink: 0; }
     .bio-photo img {
-      width: 150px; height: 150px;
-      object-fit: cover;
+      width: 175px;
+      height: auto;
       border-radius: 5px;
       border: 1px solid var(--border);
       display: block;
@@ -414,7 +414,7 @@
        ================================================ */
     @media (max-width: 540px) {
       .bio            { flex-direction: column; gap: 20px; }
-      .bio-photo img  { width: 110px; height: 110px; }
+      .bio-photo img  { width: 110px; height: auto; }
       .tl-header      { flex-direction: column; gap: 3px; }
       .proj-header    { flex-direction: column; gap: 3px; }
       .site-header h1 { font-size: 1.7rem; }
@@ -466,8 +466,7 @@
       </p>
       <p>
         My background spans mathematical optimization, probabilistic ML, and applied AI pipelines.
-        I am currently a student researcher at <strong>DAAI Lab (NEU)</strong> and a research
-        assistant on a causal network analysis project with collaborators at USC and FAU.
+        I am currently a student researcher at <strong>DAAI Lab (NEU)</strong>.
       </p>
       <div class="chips">
         <span class="chip">Causal Inference</span>
