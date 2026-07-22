@@ -1,434 +1,1364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nguyen Duong Hieu</title>
-  <link rel="icon" type="image/png" href="images/logo.png" />
-  <meta name="description" content="Data Science researcher interested in Causal Inference, Machine Learning, and OOD Generalization." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nguyen Duong Hieu is a Data Science researcher working on causal inference, uplift modeling, out-of-distribution generalization, and trustworthy AI.">
+  <meta name="theme-color" content="#f5f2ea">
+  <meta property="og:title" content="Nguyen Duong Hieu — Causal ML Researcher">
+  <meta property="og:description" content="Research, publications, and selected AI/ML projects by Nguyen Duong Hieu.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dhieu0901.github.io/">
+  <meta property="og:image" content="https://dhieu0901.github.io/images/my-avatar.jpg">
+  <meta name="twitter:card" content="summary">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <title>Nguyen Duong Hieu — Causal ML Researcher</title>
+  <link rel="canonical" href="https://dhieu0901.github.io/">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+
+  <script>
+    document.documentElement.dataset.js = "true";
+    try {
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      const preferredTheme = savedTheme === "light" || savedTheme === "dark"
+        ? savedTheme
+        : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.dataset.theme = preferredTheme;
+    } catch (_) {}
+  </script>
 
   <style>
     :root {
-      --bg:             #FFFFFF;
-      --bg-subtle:      #F8FAFC;
-      --text:           #0F172A;
-      --text-muted:     #475569;
-      --text-light:     #94A3B8;
-      --accent:         #0369A1;
-      --accent-bg:      #EFF6FF;
-      --accent-border:  #BFDBFE;
-      --border:         #E2E8F0;
-      --tag-bg:         #F1F5F9;
-      --tag-text:       #64748B;
-      --font-serif:     "Source Serif 4", Georgia, serif;
-      --font-sans:      "Inter", -apple-system, sans-serif;
-      --font-mono:      "SFMono-Regular", "Consolas", monospace;
-      --max-w:          740px;
+      color-scheme: light;
+      --paper: #f5f2ea;
+      --paper-raised: #fffdf8;
+      --ink: #14201d;
+      --muted: #5e6965;
+      --faint: #89928e;
+      --line: #d8d8ce;
+      --line-strong: #bbbeb5;
+      --pine: #174f43;
+      --pine-strong: #0d3b32;
+      --pine-soft: #dfece5;
+      --amber: #b5622d;
+      --amber-soft: #f5e5d6;
+      --blue-soft: #e1e9ef;
+      --shadow: 0 24px 70px rgba(31, 48, 43, 0.10);
+      --serif: "Newsreader", Georgia, serif;
+      --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "DM Mono", "SFMono-Regular", Consolas, monospace;
+      --content: 1140px;
+      --header-h: 76px;
     }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #101916;
+      --paper-raised: #17231f;
+      --ink: #edf3ef;
+      --muted: #b5c1bc;
+      --faint: #82918b;
+      --line: #32413b;
+      --line-strong: #4b5d56;
+      --pine: #85c8ae;
+      --pine-strong: #a2dcc5;
+      --pine-soft: #203b32;
+      --amber: #e49a66;
+      --amber-soft: #4b3022;
+      --blue-soft: #283943;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+    }
+
     *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      background: var(--bg); color: var(--text);
-      font-family: var(--font-sans); font-size: 15px;
-      line-height: 1.72; margin: 0; padding: 0;
+      margin: 0;
+      background:
+        radial-gradient(circle at 8% 8%, color-mix(in srgb, var(--pine-soft) 72%, transparent) 0, transparent 28rem),
+        radial-gradient(circle at 92% 32%, color-mix(in srgb, var(--amber-soft) 60%, transparent) 0, transparent 24rem),
+        var(--paper);
+      color: var(--ink);
+      font: 400 16px/1.7 var(--sans);
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    a { color: var(--accent); text-decoration: none; transition: opacity .15s; }
-    a:hover { opacity: .72; text-decoration: underline; }
-    ul { padding-left: 1.2em; margin: .4em 0; }
-    li { margin-bottom: .25em; }
-    p  { margin: .55em 0; }
-    .page { max-width: var(--max-w); margin: 0 auto; padding: 52px 24px 88px; }
-    .site-header { text-align: center; margin-bottom: 36px; }
-    .site-header h1 {
-      font-family: var(--font-serif); font-size: 2.15rem; font-weight: 600;
-      letter-spacing: -.015em; margin: 0 0 6px; color: var(--text);
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .24;
+      background-image: radial-gradient(var(--line-strong) .55px, transparent .55px);
+      background-size: 16px 16px;
+      mask-image: linear-gradient(to bottom, black, transparent 55%);
+      z-index: -1;
     }
-    .tagline {
-      font-family: var(--font-serif); font-style: italic; font-size: .9rem;
-      color: var(--text-muted); margin: 0 0 22px; letter-spacing: .01em;
+
+    a { color: inherit; }
+    img { max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    :focus-visible {
+      outline: 3px solid var(--amber);
+      outline-offset: 4px;
+      border-radius: 4px;
     }
-    .nav {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 2px 4px; font-size: .75rem; font-weight: 500;
-      text-transform: uppercase; letter-spacing: .09em;
+
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: 12px;
+      z-index: 1000;
+      transform: translateY(-160%);
+      padding: 9px 14px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: var(--paper);
+      text-decoration: none;
+      transition: transform .2s ease;
     }
-    .nav a {
-      color: var(--text-muted); padding: 3px 9px; border-radius: 4px;
-      transition: color .15s, background .15s; text-decoration: none;
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--content));
+      margin-inline: auto;
     }
-    .nav a:hover { color: var(--accent); background: var(--accent-bg); opacity: 1; text-decoration: none; }
-    .nav-sep { color: var(--border); line-height: 2; user-select: none; }
-    .rule { border: none; border-top: 1px solid var(--border); margin: 0 0 40px; }
-    .bio { display: flex; gap: 36px; align-items: flex-start; margin-bottom: 52px; }
-    .bio-photo { flex-shrink: 0; }
-    .bio-photo img { width: 175px; height: auto; border-radius: 5px; border: 1px solid var(--border); display: block; }
-    .bio-text { flex: 1; }
-    .bio-text p { font-size: .93rem; color: var(--text); }
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-    .chip {
-      background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border);
-      padding: 2px 11px; border-radius: 999px; font-size: .76rem; font-weight: 500; white-space: nowrap;
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
+      background: color-mix(in srgb, var(--paper) 86%, transparent);
+      backdrop-filter: blur(18px);
     }
-    .cv-link {
-      display: inline-flex; align-items: center; gap: 5px; margin-top: 16px;
-      font-size: .84rem; font-weight: 600; color: var(--accent);
-      border: 1.5px solid var(--accent-border); background: var(--accent-bg);
-      padding: 5px 14px; border-radius: 5px; transition: background .15s; text-decoration: none;
+
+    .header-inner {
+      min-height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
-    .cv-link:hover { background: #DBEAFE; opacity: 1; text-decoration: none; }
-    .section { margin-bottom: 44px; }
-    .section h2 {
-      font-family: var(--font-sans); font-size: .7rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: .15em; color: var(--text-muted);
-      margin: 0 0 20px; padding-bottom: 9px; border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; gap: 10px;
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
     }
-    .section h2::before { content: ""; display: block; width: 18px; height: 2px; background: var(--accent); flex-shrink: 0; }
-    .timeline { display: flex; flex-direction: column; }
-    .tl-item { display: flex; gap: 18px; padding-bottom: 26px; }
-    .tl-item:last-child { padding-bottom: 0; }
-    .tl-spine { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 14px; }
-    .tl-dot {
-      width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
-      border: 2px solid var(--bg); box-shadow: 0 0 0 1.5px var(--accent); flex-shrink: 0; margin-top: 5px;
+
+    .brand-mark {
+      width: 38px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--pine-strong);
+      color: var(--paper-raised);
+      font: 500 .72rem/1 var(--mono);
+      letter-spacing: -.04em;
     }
-    .tl-line { width: 1.5px; background: var(--border); flex: 1; margin-top: 5px; }
-    .tl-item:last-child .tl-line { display: none; }
-    .tl-body { flex: 1; min-width: 0; }
-    .tl-header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-    .tl-role { font-weight: 600; font-size: .9rem; color: var(--text); }
-    .tl-org { font-size: .86rem; color: var(--text-muted); }
-    .tl-org a { color: var(--text-muted); }
-    .tl-org a:hover { color: var(--accent); }
-    .tl-date {
-      font-family: var(--font-mono); font-size: .72rem; color: var(--text-light);
-      white-space: nowrap; background: var(--bg-subtle); border: 1px solid var(--border);
-      padding: 1px 7px; border-radius: 3px;
+
+    .brand-name {
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: -.02em;
     }
-    .tl-sub { font-size: .8rem; color: var(--text-light); font-style: italic; margin: 2px 0 5px; }
-    .tl-body ul { margin: 5px 0 0; padding-left: 1.1em; }
-    .tl-body li { font-size: .86rem; color: var(--text-muted); margin-bottom: 4px; }
-    .proj-list { display: flex; flex-direction: column; gap: 22px; }
-    .proj-item { border-left: 3px solid var(--border); padding-left: 16px; transition: border-color .2s; }
-    .proj-item:hover { border-left-color: var(--accent); }
-    .proj-header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 3px; }
-    .proj-title { font-weight: 600; font-size: .9rem; }
-    .proj-title a { color: var(--text); }
-    .proj-title a:hover { color: var(--accent); text-decoration: none; }
-    .proj-item ul { margin: 6px 0 8px; padding-left: 1.1em; }
-    .proj-item li { font-size: .86rem; color: var(--text-muted); margin-bottom: 4px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-    .tag { font-family: var(--font-mono); font-size: .71rem; background: var(--tag-bg); color: var(--tag-text); padding: 1px 7px; border-radius: 3px; border: 1px solid var(--border); }
-    .pub-list { list-style: none; padding: 0; margin: 0; }
-    .pub-item { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
-    .pub-item:first-child { border-top: 1px solid var(--border); }
-    .pub-main { flex: 1; min-width: 0; }
-    .pub-title { font-weight: 600; font-size: .87rem; color: var(--text); margin-bottom: 3px; }
-    .pub-authors { font-size: .82rem; color: var(--text-muted); margin-bottom: 2px; }
-    .pub-venue { font-size: .79rem; color: var(--text-light); font-style: italic; }
-    .pub-year { font-family: var(--font-mono); font-size: .76rem; color: var(--text-light); white-space: nowrap; }
-    .ach-list { list-style: none; padding: 0; margin: 0; }
-    .ach-item { display: flex; align-items: baseline; gap: 14px; padding: 7px 0; border-bottom: 1px dashed var(--border); font-size: .87rem; }
-    .ach-item:last-child { border-bottom: none; }
-    .ach-year { font-family: var(--font-mono); font-size: .73rem; color: var(--text-light); white-space: nowrap; min-width: 34px; }
-    .ach-text { color: var(--text-muted); }
-    .ach-text strong { color: var(--text); font-weight: 600; }
-    .contact-list { list-style: none; padding: 0; margin: 0; }
-    .contact-list li { font-size: .87rem; color: var(--text-muted); padding: 4px 0; }
-    .contact-list a { color: var(--accent); }
-    .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; font-size: .73rem; color: var(--text-light); }
-    @media (max-width: 540px) {
-      .bio { flex-direction: column; gap: 20px; }
-      .bio-photo img { width: 110px; height: auto; }
-      .tl-header { flex-direction: column; gap: 3px; }
-      .proj-header { flex-direction: column; gap: 3px; }
-      .site-header h1 { font-size: 1.7rem; }
-      .page { padding: 36px 18px 60px; }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 3px;
     }
-    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+    .site-nav a {
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a[aria-current="true"] {
+      color: var(--pine-strong);
+      background: var(--pine-soft);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-button,
+    .menu-button {
+      width: 40px;
+      height: 40px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--paper-raised);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .icon-button:hover,
+    .menu-button:hover {
+      transform: translateY(-2px);
+      border-color: var(--pine);
+      background: var(--pine-soft);
+    }
+
+    .menu-button { display: none; }
+
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border: 1px solid var(--pine-strong);
+      border-radius: 999px;
+      background: var(--pine-strong);
+      color: var(--paper-raised);
+      font-size: .84rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--pine) 24%, transparent);
+    }
+
+    .button.secondary {
+      color: var(--pine-strong);
+      background: transparent;
+    }
+
+    .button.secondary:hover { background: var(--pine-soft); }
+
+    main { overflow: clip; }
+
+    section[id] { scroll-margin-top: calc(var(--header-h) + 24px); }
+
+    .hero {
+      min-height: min(760px, calc(100svh - var(--header-h)));
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
+      align-items: center;
+      gap: clamp(40px, 7vw, 92px);
+      padding-block: clamp(72px, 10vw, 128px);
+    }
+
+    .eyebrow,
+    .section-kicker {
+      margin: 0 0 15px;
+      color: var(--amber);
+      font: 500 .73rem/1.4 var(--mono);
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      margin: 0;
+      font: 600 clamp(3.1rem, 7vw, 6.35rem)/.95 var(--serif);
+      letter-spacing: -.055em;
+      text-wrap: balance;
+    }
+
+    .hero h1 em {
+      color: var(--pine);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .hero-lede {
+      max-width: 680px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.16rem);
+      line-height: 1.75;
+    }
+
+    .hero-actions,
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-actions { margin-top: 30px; }
+    .social-row { margin-top: 24px; gap: 18px; }
+
+    .text-link {
+      color: var(--muted);
+      font-size: .84rem;
+      font-weight: 600;
+      text-underline-offset: 4px;
+      text-decoration-color: var(--line-strong);
+      transition: color .2s ease;
+    }
+
+    .text-link:hover { color: var(--pine-strong); }
+
+    .profile-panel {
+      position: relative;
+      min-height: 470px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 32px 32px 32px 8px;
+      background: color-mix(in srgb, var(--paper-raised) 91%, transparent);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-panel::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -100px;
+      top: -95px;
+      border-radius: 50%;
+      border: 52px solid var(--pine-soft);
+      opacity: .9;
+    }
+
+    .causal-map {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      color: var(--line-strong);
+      opacity: .52;
+      pointer-events: none;
+    }
+
+    .profile-top,
+    .profile-bottom { position: relative; z-index: 1; }
+
+    .portrait {
+      width: 126px;
+      height: 154px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 6px solid var(--paper-raised);
+      border-radius: 18px 18px 18px 5px;
+      background: var(--pine-soft);
+      box-shadow: 0 10px 32px rgba(22, 45, 38, .14);
+    }
+
+    .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .portrait-fallback {
+      font: 600 2rem/1 var(--serif);
+      color: var(--pine-strong);
+      letter-spacing: -.06em;
+    }
+
+    .availability {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper-raised);
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #39a56f;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #39a56f 16%, transparent);
+    }
+
+    .profile-bottom h2 {
+      margin: 0;
+      font: 600 1.55rem/1.15 var(--serif);
+      letter-spacing: -.025em;
+    }
+
+    .profile-bottom > p {
+      margin: 7px 0 18px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      padding-top: 17px;
+    }
+
+    .stat { padding-right: 10px; }
+    .stat + .stat { padding-left: 12px; border-left: 1px solid var(--line); }
+    .stat strong { display: block; font: 600 1.18rem/1.1 var(--serif); }
+    .stat span { display: block; margin-top: 5px; color: var(--faint); font-size: .67rem; line-height: 1.35; text-transform: uppercase; letter-spacing: .08em; }
+
+    .section-block { padding-block: clamp(74px, 9vw, 118px); }
+    .section-block.compact { padding-block: clamp(58px, 7vw, 90px); }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .58fr);
+      gap: 40px;
+      align-items: end;
+      margin-bottom: clamp(36px, 5vw, 62px);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font: 600 clamp(2.25rem, 4.5vw, 4rem)/1 var(--serif);
+      letter-spacing: -.04em;
+    }
+
+    .section-heading > p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .research-card,
+    .project-card,
+    .info-card {
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--paper-raised) 92%, transparent);
+    }
+
+    .research-card {
+      min-height: 285px;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      border-radius: 18px;
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .research-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pine);
+      box-shadow: 0 16px 40px rgba(28, 50, 43, .08);
+    }
+
+    .card-index {
+      color: var(--amber);
+      font: 500 .72rem/1 var(--mono);
+    }
+
+    .research-card h3 {
+      margin: auto 0 10px;
+      font: 600 1.55rem/1.08 var(--serif);
+      letter-spacing: -.025em;
+    }
+
+    .research-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .band {
+      border-block: 1px solid var(--line);
+      background: color-mix(in srgb, var(--paper-raised) 58%, transparent);
+    }
+
+    .timeline { position: relative; }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 178px;
+      top: 10px;
+      bottom: 16px;
+      width: 1px;
+      background: var(--line-strong);
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 58px;
+      padding-bottom: 38px;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 174px;
+      top: 7px;
+      width: 9px;
+      height: 9px;
+      border: 2px solid var(--paper);
+      border-radius: 50%;
+      background: var(--pine);
+      box-shadow: 0 0 0 1px var(--pine);
+    }
+
+    .timeline-date {
+      color: var(--faint);
+      font: 400 .73rem/1.45 var(--mono);
+      text-align: right;
+    }
+
+    .timeline-content h3 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .timeline-org {
+      margin: 3px 0 9px;
+      color: var(--pine);
+      font-size: .84rem;
+      font-weight: 600;
+    }
+
+    .timeline-note {
+      margin: -3px 0 9px;
+      color: var(--faint);
+      font-size: .77rem;
+      font-style: italic;
+    }
+
+    .clean-list {
+      margin: 0;
+      padding-left: 1.05rem;
+      color: var(--muted);
+    }
+
+    .clean-list li { margin: 5px 0; padding-left: 4px; font-size: .88rem; }
+    .clean-list li::marker { color: var(--amber); }
+
+    .publication {
+      position: relative;
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 28px;
+      padding: clamp(26px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper-raised);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .publication::after {
+      content: "“";
+      position: absolute;
+      right: 24px;
+      top: -20px;
+      color: var(--pine-soft);
+      font: 600 9rem/1 var(--serif);
+      pointer-events: none;
+    }
+
+    .pub-year {
+      color: var(--amber);
+      font: 500 .82rem/1.4 var(--mono);
+    }
+
+    .pub-content { position: relative; z-index: 1; }
+
+    .pub-content h3 {
+      max-width: 850px;
+      margin: 0;
+      font: 600 clamp(1.35rem, 2.6vw, 2rem)/1.22 var(--serif);
+      letter-spacing: -.025em;
+    }
+
+    .pub-authors { margin: 14px 0 4px; color: var(--muted); font-size: .88rem; }
+    .pub-venue { margin: 0; color: var(--faint); font-size: .82rem; font-style: italic; }
+    .pub-summary { max-width: 780px; margin: 18px 0 0; color: var(--muted); font-size: .88rem; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      position: relative;
+      min-height: 390px;
+      display: flex;
+      flex-direction: column;
+      padding: 25px;
+      border-radius: 22px;
+      overflow: hidden;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pine);
+      box-shadow: 0 18px 45px rgba(28, 50, 43, .10);
+    }
+
+    .project-card.featured {
+      grid-column: span 2;
+      min-height: 410px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 40px;
+      background: var(--pine-strong);
+      color: var(--paper-raised);
+      border-color: var(--pine-strong);
+    }
+
+    .project-card.featured::after {
+      content: "";
+      position: absolute;
+      width: 390px;
+      height: 390px;
+      right: -95px;
+      top: -80px;
+      border: 78px solid color-mix(in srgb, var(--pine) 70%, transparent);
+      border-radius: 50%;
+      opacity: .72;
+    }
+
+    .project-main,
+    .project-aside { position: relative; z-index: 1; }
+
+    .project-card .card-index { margin-bottom: auto; }
+
+    .project-card h3 {
+      margin: 30px 0 9px;
+      font: 600 1.6rem/1.1 var(--serif);
+      letter-spacing: -.025em;
+    }
+
+    .project-card.featured h3 {
+      margin-top: 58px;
+      font-size: clamp(2.25rem, 4.2vw, 3.8rem);
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .project-card.featured p,
+    .project-card.featured .clean-list { color: color-mix(in srgb, var(--paper-raised) 78%, transparent); }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .project-link {
+      color: var(--pine-strong);
+      font-size: .82rem;
+      font-weight: 700;
+      text-underline-offset: 4px;
+    }
+
+    .featured .project-link { color: var(--paper-raised); }
+
+    .project-aside {
+      align-self: end;
+      padding: 22px;
+      border: 1px solid color-mix(in srgb, white 22%, transparent);
+      border-radius: 18px;
+      background: color-mix(in srgb, white 8%, transparent);
+      backdrop-filter: blur(10px);
+    }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+
+    .tag {
+      display: inline-flex;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--muted);
+      font: 400 .65rem/1.2 var(--mono);
+    }
+
+    .featured .tag {
+      border-color: color-mix(in srgb, white 22%, transparent);
+      background: color-mix(in srgb, white 9%, transparent);
+      color: color-mix(in srgb, white 84%, transparent);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 18px;
+    }
+
+    .info-card {
+      padding: 26px;
+      border-radius: 20px;
+    }
+
+    .info-card h3 {
+      margin: 0 0 18px;
+      font: 600 1.45rem/1.1 var(--serif);
+      letter-spacing: -.02em;
+    }
+
+    .degree { margin: 0; font-weight: 700; }
+    .institution { margin: 4px 0; color: var(--pine); font-size: .88rem; font-weight: 600; }
+    .meta { color: var(--faint); font: 400 .73rem/1.5 var(--mono); }
+    .education-detail { margin: 15px 0 0; color: var(--muted); font-size: .84rem; }
+    .education-separator { border: 0; border-top: 1px solid var(--line); margin: 22px 0; }
+
+    .skill-group + .skill-group { margin-top: 17px; }
+    .skill-group h4 { margin: 0 0 5px; color: var(--ink); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
+    .skill-group p { margin: 0; color: var(--muted); font-size: .85rem; }
+
+    .achievement-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 24px; }
+
+    .achievement {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .achievement time { color: var(--amber); font: 500 .72rem/1.6 var(--mono); }
+    .achievement p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .achievement strong { color: var(--ink); }
+
+    .contact-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 36px;
+      padding: clamp(34px, 6vw, 68px);
+      border-radius: 30px 30px 30px 8px;
+      background: var(--amber-soft);
+      overflow: hidden;
+    }
+
+    .contact-panel::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -100px;
+      bottom: -130px;
+      border-radius: 50%;
+      border: 50px solid color-mix(in srgb, var(--amber) 16%, transparent);
+    }
+
+    .contact-panel > * { position: relative; z-index: 1; }
+    .contact-panel h2 { max-width: 760px; margin: 0; font: 600 clamp(2.4rem, 5vw, 4.6rem)/.98 var(--serif); letter-spacing: -.045em; }
+    .contact-panel p { max-width: 650px; margin: 18px 0 0; color: var(--muted); }
+
+    .contact-actions { display: flex; flex-direction: column; gap: 10px; min-width: 190px; }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-block: 34px;
+      color: var(--faint);
+      font-size: .75rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    @media (max-width: 980px) {
+      .site-nav { gap: 0; }
+      .site-nav a { padding-inline: 7px; }
+      .hero { grid-template-columns: 1fr .72fr; gap: 40px; }
+      .research-grid { grid-template-columns: 1fr; }
+      .research-card { min-height: 210px; }
+      .project-card.featured { grid-template-columns: 1fr; }
+      .project-aside { align-self: auto; }
+    }
+
+    @media (max-width: 820px) {
+      :root { --header-h: 68px; }
+      .header-inner { min-height: var(--header-h); }
+      .menu-button { display: inline-grid; }
+      .header-actions > .button { display: none; }
+
+      [data-js="true"] .site-nav {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: calc(100% + 8px);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--paper-raised);
+        box-shadow: var(--shadow);
+      }
+
+      [data-js="true"] .site-nav[data-open="true"] { display: flex; }
+      .site-nav a { padding: 11px 12px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 82px; }
+      .profile-panel { min-height: 430px; }
+      .section-heading { grid-template-columns: 1fr; gap: 16px; }
+      .timeline::before { left: 6px; }
+      .timeline-item { grid-template-columns: 1fr; gap: 8px; padding-left: 34px; }
+      .timeline-item::before { left: 2px; }
+      .timeline-date { text-align: left; order: 2; }
+      .timeline-content { order: 1; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; }
+      .two-column { grid-template-columns: 1fr; }
+      .contact-panel { grid-template-columns: 1fr; }
+      .contact-actions { flex-direction: row; flex-wrap: wrap; }
+    }
+
+    @media (max-width: 560px) {
+      .shell { width: min(calc(100% - 28px), var(--content)); }
+      .brand-name { display: none; }
+      .hero h1 { font-size: clamp(3rem, 16vw, 4.45rem); }
+      .hero-actions .button { width: 100%; }
+      .profile-panel { padding: 20px; border-radius: 24px 24px 24px 8px; }
+      .quick-stats { grid-template-columns: 1fr; gap: 12px; }
+      .stat + .stat { padding: 12px 0 0; border-left: none; border-top: 1px solid var(--line); }
+      .stat { padding-right: 0; }
+      .publication { grid-template-columns: 1fr; gap: 12px; }
+      .project-card { min-height: 0; padding: 21px; }
+      .project-card.featured h3 { margin-top: 42px; }
+      .achievement-list { grid-template-columns: 1fr; }
+      .contact-actions { flex-direction: column; }
+      .contact-actions .button { width: 100%; }
+      .footer { flex-direction: column; gap: 5px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nguyen Duong Hieu",
+    "url": "https://dhieu0901.github.io/",
+    "email": "mailto:duonghieung0901@gmail.com",
+    "jobTitle": "Data Science Researcher",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "National Economics University"
+    },
+    "sameAs": [
+      "https://github.com/dhieu0901",
+      "https://linkedin.com/in/kidwithbigdreams"
+    ],
+    "knowsAbout": [
+      "Causal Inference",
+      "Causal Machine Learning",
+      "Uplift Modeling",
+      "Out-of-Distribution Generalization",
+      "Trustworthy AI"
+    ]
+  }
+  </script>
 </head>
+
 <body>
-<div class="page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header">
-    <h1>Nguyen Duong Hieu</h1>
-    <p class="tagline">Causal Inference &middot; Machine Learning &middot; Trustworthy AI</p>
-    <nav class="nav">
-      <a href="#about">About</a>
-      <span class="nav-sep">&middot;</span>
-      <a href="#experience">Experience</a>
-      <span class="nav-sep">&middot;</span>
-      <a href="#projects">Projects</a>
-      <span class="nav-sep">&middot;</span>
-      <a href="#publications">Publications</a>
-      <span class="nav-sep">&middot;</span>
-      <a href="#achievements">Achievements</a>
-      <span class="nav-sep">&middot;</span>
-      <a href="pdf/Nguyen Duong Hieu.pdf" target="_blank">CV</a>
-      <span class="nav-sep">&middot;</span>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Nguyen Duong Hieu — home">
+        <span class="brand-mark" aria-hidden="true">NDH</span>
+        <span class="brand-name">Nguyen Duong Hieu</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publication</a>
+        <a href="#projects">Projects</a>
+        <a href="#profile">Profile</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+          <span id="theme-icon" aria-hidden="true">◐</span>
+        </button>
+        <a class="button" href="pdf/Nguyen Duong Hieu.pdf" target="_blank" rel="noopener">View CV <span aria-hidden="true">↗</span></a>
+        <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <hr class="rule" />
-
-  <section id="about" class="bio">
-    <div class="bio-photo">
-      <img src="images/my-avatar.jpg" alt="Nguyen Duong Hieu" />
-    </div>
-    <div class="bio-text">
-      <p>
-        I am a Data Science student at the <strong>National Economics University, Hanoi</strong>,
-        with a growing research focus on <strong>Causal Inference</strong> and its intersection
-        with Machine Learning &mdash; particularly causal representation learning,
-        out-of-distribution (OOD) generalization, and trustworthy AI systems.
-      </p>
-      <p>
-        My background spans mathematical optimization, probabilistic ML, and applied AI pipelines.
-        I am currently an AI Intern at <strong>VinSmart Future</strong> and a student researcher at <strong>DAAI Lab (NEU)</strong>.
-      </p>
-      <div class="chips">
-        <span class="chip">Causal Inference</span>
-        <span class="chip">Uplift Modeling</span>
-        <span class="chip">OOD Generalization</span>
-        <span class="chip">Probabilistic ML</span>
-        <span class="chip">Trustworthy AI</span>
+  <main id="main-content">
+    <section class="shell hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Data Science Researcher · Hanoi, Vietnam</p>
+        <h1 id="hero-title">Studying <em>cause</em>, not just correlation.</h1>
+        <p class="hero-lede">
+          I am Nguyen Duong Hieu, an undergraduate researcher at the National Economics University. My work sits at the intersection of causal inference and machine learning, with a focus on reliable decisions under distribution shift.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#research">Explore my research <span aria-hidden="true">↓</span></a>
+          <a class="button secondary" href="mailto:duonghieung0901@gmail.com">Email me</a>
+        </div>
+        <div class="social-row" role="group" aria-label="External profiles">
+          <a class="text-link" href="https://github.com/dhieu0901" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="text-link" href="https://linkedin.com/in/kidwithbigdreams" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="text-link" href="pdf/Nguyen Duong Hieu.pdf" target="_blank" rel="noopener">Curriculum vitae ↗</a>
+        </div>
       </div>
-      <a class="cv-link" href="pdf/Nguyen Duong Hieu.pdf" target="_blank">View Full CV &rarr;</a>
-    </div>
-  </section>
 
-  <section id="experience" class="section">
-    <h2>Experience</h2>
-    <div class="timeline">
+      <aside class="profile-panel reveal" aria-label="Profile summary">
+        <svg class="causal-map" viewBox="0 0 420 520" aria-hidden="true">
+          <path d="M74 104 C142 52 226 62 286 126 M286 126 C346 194 332 274 278 330 M278 330 C216 390 126 374 82 310 M82 310 C34 244 34 164 74 104" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 7" />
+          <path d="M94 132 L252 152 M252 152 L266 306 M94 132 L98 286 M98 286 L266 306" fill="none" stroke="currentColor" stroke-width="1.4" />
+          <circle cx="94" cy="132" r="8" fill="currentColor" />
+          <circle cx="252" cy="152" r="8" fill="currentColor" />
+          <circle cx="98" cy="286" r="8" fill="currentColor" />
+          <circle cx="266" cy="306" r="8" fill="currentColor" />
+        </svg>
 
-      <div class="tl-item">
-        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-body">
-          <div class="tl-header">
-            <div>
-              <div class="tl-role">AI Intern, Fintech &amp; Payment</div>
-              <div class="tl-org">VinSmart Future (Vingroup)</div>
+        <div class="profile-top">
+          <div class="portrait">
+            <img src="images/my-avatar.jpg" alt="Portrait of Nguyen Duong Hieu" onerror="this.hidden=true; this.nextElementSibling.hidden=false">
+            <div class="portrait-fallback" hidden role="img" aria-label="Nguyen Duong Hieu initials">NDH</div>
+          </div>
+          <div class="availability"><span class="status-dot" aria-hidden="true"></span> Open to research collaboration</div>
+        </div>
+
+        <div class="profile-bottom">
+          <h2>Nguyen Duong Hieu</h2>
+          <p>BS Data Science · National Economics University</p>
+          <div class="quick-stats">
+            <div class="stat"><strong>3.78</strong><span>GPA / 4.0</span></div>
+            <div class="stat"><strong>CATE</strong><span>Current research</span></div>
+            <div class="stat"><strong>2026</strong><span>ICSEED author</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="shell section-block" id="research" aria-labelledby="research-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-kicker">Research direction</p>
+          <h2 id="research-title">Questions I want to answer.</h2>
+        </div>
+        <p>I am interested in methods that explain why outcomes happen, remain reliable outside the training distribution, and communicate uncertainty responsibly.</p>
+      </div>
+
+      <div class="research-grid">
+        <article class="research-card reveal">
+          <span class="card-index">01 / CAUSALITY</span>
+          <h3>Causal inference &amp; uplift modeling</h3>
+          <p>Estimating heterogeneous treatment effects and learning policies that optimize incremental outcomes rather than correlations alone.</p>
+        </article>
+        <article class="research-card reveal">
+          <span class="card-index">02 / GENERALIZATION</span>
+          <h3>Causal representation &amp; OOD</h3>
+          <p>Learning representations that capture stable mechanisms and support robust prediction when environments or populations change.</p>
+        </article>
+        <article class="research-card reveal">
+          <span class="card-index">03 / RELIABILITY</span>
+          <h3>Trustworthy &amp; probabilistic AI</h3>
+          <p>Building models whose assumptions, uncertainty, and failure modes can be inspected before they influence real decisions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="band" id="experience" aria-labelledby="experience-title">
+      <div class="shell section-block">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-kicker">Experience</p>
+            <h2 id="experience-title">Research in context.</h2>
+          </div>
+          <p>My experience spans causal ML, multimodal systems, academic networks, mathematical optimization, and teaching.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <time class="timeline-date" datetime="2026-07">Jul 2026 — Present</time>
+            <div class="timeline-content">
+              <h3>AI Intern, Fintech &amp; Payment</h3>
+              <p class="timeline-org">VinSmart Future · Vingroup</p>
+              <ul class="clean-list">
+                <li>Developed an uplift-modeling proof of concept for targeted fintech marketing using Conditional Average Treatment Effects instead of conventional response probabilities.</li>
+                <li>Built an experimentation pipeline on the Hillstrom and Criteo benchmarks, covering preprocessing, treatment-effect estimation, policy evaluation, and cost-effectiveness analysis.</li>
+                <li>Designed a simulated A/B testing framework to evaluate whether learned targeting policies produce incremental outcomes under budget constraints.</li>
+              </ul>
             </div>
-            <span class="tl-date">Jul 2026 &ndash; Sep 2026</span>
-          </div>
-          <ul>
-            <li>Developed a 6-week Proof of Concept (PoC) on <strong>Uplift Modeling</strong> to optimize targeted fintech campaigns using causal inference methodologies.</li>
-            <li>Built an end-to-end pipeline on public datasets (Hillstrom and Criteo) to estimate Conditional Average Treatment Effects (CATE).</li>
-            <li>Evaluated multiple uplift models to maximize incremental conversions and designed a simulated A/B testing framework to validate policy effects.</li>
-          </ul>
-        </div>
-      </div>
+          </article>
 
-      <div class="tl-item">
-        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-body">
-          <div class="tl-header">
-            <div>
-              <div class="tl-role">Student Researcher</div>
-              <div class="tl-org">DAAI Lab &mdash; National Economics University</div>
+          <article class="timeline-item reveal">
+            <time class="timeline-date" datetime="2026-01">Jan 2026 — Present</time>
+            <div class="timeline-content">
+              <h3>Student Researcher</h3>
+              <p class="timeline-org">DAAI Lab · National Economics University</p>
+              <ul class="clean-list">
+                <li>Developed a multimodal workflow combining OCR and PhoWhisper ASR with Gemini for structured extraction from noisy visual and acoustic inputs.</li>
+                <li>Built Sentence-BERT and BM25 hybrid retrieval with Reciprocal Rank Fusion over a 50,000-SKU catalog.</li>
+                <li>Achieved F1 scores of 0.91 on visual inputs and 0.85 on acoustic inputs, with Recall@5 of 0.93.</li>
+              </ul>
             </div>
-            <span class="tl-date">Jan 2026 &ndash; Now</span>
-          </div>
-          <ul>
-            <li>Researched and developed ML/AI algorithms applied to real-world enterprise problems, with a primary focus on multimodal information extraction and intelligent business process automation.</li>
-            <li>Designed and implemented end-to-end AI pipelines integrating NLP, computer vision, and retrieval techniques to deliver production-ready solutions for enterprise clients.</li>
-          </ul>
-        </div>
-      </div>
+          </article>
 
-      <div class="tl-item">
-        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-body">
-          <div class="tl-header">
-            <div>
-              <div class="tl-role">Research Assistant</div>
-              <div class="tl-org">Project: "Does Network Position Cause Scholarly Success?"</div>
+          <article class="timeline-item reveal">
+            <time class="timeline-date" datetime="2026">Spring 2026</time>
+            <div class="timeline-content">
+              <h3>Research Assistant</h3>
+              <p class="timeline-org">Does Network Position Cause Scholarly Success?</p>
+              <p class="timeline-note">With Prof. Mike Nguyen (USC) and Prof. Minh Nguyen (FAU)</p>
+              <ul class="clean-list">
+                <li>Curated and structured large-scale academic collaboration networks to support causal analysis of how network position affects scholarly productivity.</li>
+              </ul>
             </div>
-            <span class="tl-date">Spring 2026</span>
-          </div>
-          <p class="tl-sub">with Prof. Mike Nguyen (USC) &middot; Prof. Minh Nguyen (FAU)</p>
-          <ul>
-            <li>Curated and structured large-scale academic collaboration network datasets to support causal analysis of network position effects on scholarly productivity.</li>
-            <li>Provided analysis-ready datasets enabling the team's empirical investigation of structural causes of research outcomes.</li>
-          </ul>
-        </div>
-      </div>
+          </article>
 
-      <div class="tl-item">
-        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-body">
-          <div class="tl-header">
-            <div>
-              <div class="tl-role">Teaching Assistant &mdash; Python for Data Science &amp; Power BI</div>
-              <div class="tl-org">National Economics University</div>
+          <article class="timeline-item reveal">
+            <time class="timeline-date" datetime="2024-07/2026-01">Jul 2024 — Jan 2026</time>
+            <div class="timeline-content">
+              <h3>Student Researcher</h3>
+              <p class="timeline-org"><a href="https://fda.neu.edu.vn/dataopt/" target="_blank" rel="noopener">DATAOPT Lab · National Economics University ↗</a></p>
+              <ul class="clean-list">
+                <li>Implemented mathematical and convex optimization algorithms, reproduced experiments from the literature, and evaluated their behavior in machine-learning settings.</li>
+              </ul>
             </div>
-            <span class="tl-date">Aug &ndash; Dec 2025</span>
-          </div>
-          <ul>
-            <li>Supported students and prepared course materials for Python and Power BI courses, covering programming fundamentals and data analysis.</li>
-            <li>Evaluated and graded submissions, providing detailed feedback to improve understanding.</li>
-          </ul>
-        </div>
-      </div>
+          </article>
 
-      <div class="tl-item">
-        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-body">
-          <div class="tl-header">
-            <div>
-              <div class="tl-role">Student Researcher</div>
-              <div class="tl-org"><a href="https://fda.neu.edu.vn/dataopt/" target="_blank">DATAOPT Lab</a> &mdash; National Economics University</div>
+          <article class="timeline-item reveal">
+            <time class="timeline-date" datetime="2025-08/2025-12">Aug — Dec 2025</time>
+            <div class="timeline-content">
+              <h3>Teaching Assistant</h3>
+              <p class="timeline-org">Python for Data Science &amp; Power BI · National Economics University</p>
+              <ul class="clean-list">
+                <li>Prepared practical exercises, explained programming and data-analysis concepts, and provided structured feedback on student submissions.</li>
+              </ul>
             </div>
-            <span class="tl-date">Jul 2024 &ndash; Jan 2026</span>
-          </div>
-          <ul>
-            <li>Researched and implemented mathematical optimization algorithms (e.g., convex optimization) and evaluated their practical performance in ML contexts through experiment reproduction.</li>
-          </ul>
+          </article>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="proj-list">
-
-      <div class="proj-item">
-        <div class="proj-header">
-          <div class="proj-title">Multimodal AI in Enterprise Robotic Process Automation</div>
-          <span class="tl-date">Spring 2026</span>
+    <section class="shell section-block compact" id="publications" aria-labelledby="publication-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-kicker">Publication</p>
+          <h2 id="publication-title">Published research.</h2>
         </div>
-        <ul>
-          <li>Designed a modular two-stage <strong>agentic workflow framework</strong> integrating OCR and ASR (PhoWhisper) with a zero-shot LLM (Gemini) for structured entity extraction from unstructured business inputs.</li>
-          <li>Developed a <strong>hybrid retrieval mechanism</strong> combining Sentence-BERT (dense) and BM25 (sparse) via Reciprocal Rank Fusion (RRF).</li>
-          <li>Achieved F1-scores of 0.91 (visual) and 0.85 (acoustic) under noisy conditions; Recall@5 of 0.93 on a 50,000-SKU enterprise catalog.</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Gemini API</span>
-          <span class="tag">PhoWhisper</span>
-          <span class="tag">Sentence-BERT</span>
-          <span class="tag">BM25</span>
-          <span class="tag">RRF</span>
-        </div>
+        <p>My current publication applies behavioral modeling and structural equation analysis to sustainable consumption decisions.</p>
       </div>
 
-      <div class="proj-item">
-        <div class="proj-header">
-          <div class="proj-title">
-            <a href="https://github.com/dhieu0901/Soi-Thuoc" target="_blank">
-              Soi Thuoc &mdash; AI Reading Assistant for Vietnamese Seniors &#8599;
-            </a>
-          </div>
-          <span class="tl-date">Summer 2026</span>
-        </div>
-        <p class="tl-sub">Repository: <a href="https://github.com/dhieu0901/Soi-Thuoc" target="_blank">github.com/dhieu0901/Soi-Thuoc</a></p>
-        <ul>
-          <li>Developed a mobile-first AI product that helps Vietnamese seniors understand medication labels, bills, forms, and official documents from a single photo.</li>
-          <li>Designed the full reading workflow: browser-side image compression, vision-based OCR and explanation, grounded follow-up Q&amp;A, Vietnamese TTS/STT, and installable PWA support.</li>
-          <li>Hardened the application for real usage with route-level validation, rate limiting, request IDs, privacy-conscious service-worker behavior, friendly Vietnamese error messages, and an API-key-free demo mode.</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Next.js</span>
-          <span class="tag">React</span>
-          <span class="tag">OpenAI API</span>
-          <span class="tag">Vision OCR</span>
-          <span class="tag">TTS/STT</span>
-          <span class="tag">PWA</span>
-          <span class="tag">Accessibility</span>
-        </div>
-      </div>
-
-      <div class="proj-item">
-        <div class="proj-header">
-          <div class="proj-title">
-            <a href="https://github.com/dhieu0901/Machine-Learning-Group-5-Final-Project" target="_blank">
-              Hanoi Temperature Forecasting System &#8599;
-            </a>
-          </div>
-          <span class="tl-date">Late 2025</span>
-        </div>
-        <ul>
-          <li>Developed an end-to-end ML pipeline forecasting Hanoi's daily temperature (5-day horizon) from 10+ years of data, engineering 90+ features (lag variables, STL decomposition, FFT).</li>
-          <li>Trained a multi-output CatBoost model with Optuna tuning (R<sup>2</sup> &asymp; 0.84); deployed a Streamlit app with SHAP explainability and MLOps drift detection (PSI, KS-test).</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">CatBoost</span>
-          <span class="tag">Optuna</span>
-          <span class="tag">SHAP</span>
-          <span class="tag">ONNX</span>
-          <span class="tag">Streamlit</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="publications" class="section">
-    <h2>Publications</h2>
-    <ul class="pub-list">
-      <li class="pub-item">
-        <div class="pub-main">
-          <div class="pub-title">Promoting circular consumption behavior: Factors influencing Vietnamese Generation Z's intention to extend the lifespan of personal electronic devices</div>
-          <div class="pub-authors">Le Thu Thao, <strong>Nguyen Duong Hieu</strong>, Pham Phuong Trinh, Nguyen Minh Tung</div>
-          <div class="pub-venue">22nd International Conference on Socio-economic and Environmental Issues in Development (ICSEED 2026)</div>
-        </div>
+      <article class="publication reveal">
         <div class="pub-year">2026</div>
-      </li>
-    </ul>
-  </section>
+        <div class="pub-content">
+          <h3>Promoting circular consumption behavior: Factors influencing Vietnamese Generation Z's intention to extend the lifespan of personal electronic devices</h3>
+          <p class="pub-authors">Le Thu Thao, <strong>Nguyen Duong Hieu</strong>, Pham Phuong Trinh, Nguyen Minh Tung</p>
+          <p class="pub-venue">22nd International Conference on Socio-economic and Environmental Issues in Development · ICSEED 2026</p>
+          <p class="pub-summary">Applied PLS-SEM to 733 respondents using an integrated Theory of Planned Behavior and Push-Pull-Mooring framework.</p>
+        </div>
+      </article>
+    </section>
 
-  <section id="achievements" class="section">
-    <h2>Achievements</h2>
-    <ul class="ach-list">
-      <li class="ach-item">
-        <span class="ach-year">2026</span>
-        <span class="ach-text"><strong>Third Prize</strong> &mdash; University-Level Scientific Research Competition, National Economics University</span>
-      </li>
-      <li class="ach-item">
-        <span class="ach-year">2025</span>
-        <span class="ach-text"><strong>Top 10</strong> &mdash; Hanoi Mathematical Modeling Competition</span>
-      </li>
-      <li class="ach-item">
-        <span class="ach-year">2024</span>
-        <span class="ach-text"><strong>Academic Encouragement Scholarship (Excellent)</strong> &mdash; Faculty of Mathematical Economics, NEU</span>
-      </li>
-      <li class="ach-item">
-        <span class="ach-year">2024</span>
-        <span class="ach-text"><strong>Outstanding Youth Union Member Award</strong> &mdash; National Economics University</span>
-      </li>
-      <li class="ach-item">
-        <span class="ach-year">2023</span>
-        <span class="ach-text"><strong>Consolation Prize</strong> &mdash; Hai Phong City Mathematics Competition</span>
-      </li>
-      <li class="ach-item">
-        <span class="ach-year">2022</span>
-        <span class="ach-text"><strong>IELTS 7.0</strong></span>
-      </li>
-    </ul>
-  </section>
+    <section class="shell section-block" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-kicker">Selected work</p>
+          <h2 id="projects-title">Ideas made testable.</h2>
+        </div>
+        <p>Beyond research prototypes, I build complete systems to understand how models behave when they meet real users and operational constraints.</p>
+      </div>
 
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <ul class="contact-list">
-      <li>Email: <a href="mailto:duonghieung0901@gmail.com">duonghieung0901@gmail.com</a></li>
-      <li>LinkedIn: <a href="https://linkedin.com/in/kidwithbigdreams" target="_blank">linkedin.com/in/kidwithbigdreams</a></li>
-      <li>GitHub: <a href="https://github.com/dhieu0901" target="_blank">github.com/dhieu0901</a></li>
-    </ul>
-  </section>
+      <div class="project-grid">
+        <article class="project-card featured reveal">
+          <div class="project-main">
+            <span class="card-index">FEATURED · 2026</span>
+            <h3>DentFlow AI</h3>
+            <p>An AI-assisted dental booking and clinic-flow platform that separates language intelligence from deterministic operational decisions.</p>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/dhieu0901/Dentflow-AI" target="_blank" rel="noopener">GitHub repository ↗</a>
+              <a class="project-link" href="https://c2-app-156.vercel.app/" target="_blank" rel="noopener">Live product ↗</a>
+            </div>
+          </div>
+          <div class="project-aside">
+            <ul class="clean-list">
+              <li>Built guarded AI intake and adaptive booking with structured outputs and deterministic fallbacks.</li>
+              <li>Implemented capacity-aware slot selection and conflict-safe booking.</li>
+              <li>Developed room scoring, service queues, route sequencing, realtime updates, and role-based access.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">OpenAI</span><span class="tag">Vitest</span><span class="tag">Playwright</span>
+            </div>
+          </div>
+        </article>
 
-  <footer class="footer">
-    Nguyen Duong Hieu &nbsp;&middot;&nbsp; Hanoi, Vietnam
+        <article class="project-card reveal">
+          <span class="card-index">02 · HUMAN-CENTERED AI</span>
+          <h3>Soi Thuoc</h3>
+          <p>A mobile-first reading assistant that helps Vietnamese seniors understand medication labels, bills, forms, and official documents from a single photo.</p>
+          <ul class="clean-list">
+            <li>Combined vision OCR, grounded follow-up Q&amp;A, Vietnamese TTS/STT, and installable PWA support.</li>
+            <li>Added validation, rate limiting, request IDs, privacy-conscious caching, and an API-key-free demo mode.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Next.js</span><span class="tag">Vision OCR</span><span class="tag">TTS/STT</span><span class="tag">PWA</span><span class="tag">Accessibility</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/dhieu0901/Soi-Thuoc" target="_blank" rel="noopener">GitHub repository ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <span class="card-index">03 · FORECASTING</span>
+          <h3>Hanoi Temperature Forecasting</h3>
+          <p>A five-day forecasting pipeline trained on more than ten years of weather data, with interpretable predictions and drift monitoring.</p>
+          <ul class="clean-list">
+            <li>Engineered 90+ lag, STL decomposition, and FFT features.</li>
+            <li>Tuned a multi-output CatBoost model to R² ≈ 0.84 and deployed a Streamlit interface with SHAP and PSI/KS checks.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">CatBoost</span><span class="tag">Optuna</span><span class="tag">SHAP</span><span class="tag">Streamlit</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/dhieu0901/Machine-Learning-Group-5-Final-Project" target="_blank" rel="noopener">GitHub repository ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="band" id="profile" aria-labelledby="profile-title">
+      <div class="shell section-block compact">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-kicker">Academic profile</p>
+            <h2 id="profile-title">Training &amp; toolkit.</h2>
+          </div>
+          <p>A quantitative foundation in statistics and optimization, paired with the engineering tools needed to run reproducible experiments.</p>
+        </div>
+
+        <div class="two-column">
+          <article class="info-card reveal">
+            <h3>Education</h3>
+            <p class="degree">BS in Data Science in Economics and Business</p>
+            <p class="institution">National Economics University</p>
+            <p class="meta">SEP 2023 — PRESENT · GPA 3.78 / 4.0</p>
+            <p class="education-detail">Relevant coursework: Machine Learning, Probability &amp; Statistics, Optimization, Linear Algebra, and Data Structures &amp; Algorithms.</p>
+            <hr class="education-separator">
+            <p class="degree">Natural Science 1</p>
+            <p class="institution">Tran Phu High School for the Gifted</p>
+            <p class="meta">2020 — 2023</p>
+          </article>
+
+          <article class="info-card reveal">
+            <h3>Technical skills</h3>
+            <div class="skill-group">
+              <h4>Research methods</h4>
+              <p>Causal inference, CATE and uplift modeling, DAGs, experimental design, probabilistic ML, optimization, statistical analysis</p>
+            </div>
+            <div class="skill-group">
+              <h4>Programming &amp; data</h4>
+              <p>Python, SQL, TypeScript, Pandas, NumPy, Scikit-learn</p>
+            </div>
+            <div class="skill-group">
+              <h4>Machine learning</h4>
+              <p>CatBoost, Optuna, SHAP, Sentence-BERT, BM25, LLMs, NLP, computer vision, OCR/ASR pipelines</p>
+            </div>
+            <div class="skill-group">
+              <h4>Engineering</h4>
+              <p>Git, Docker, GitHub Actions, Next.js, React, Supabase, Streamlit, Power BI, LaTeX</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section-block compact" aria-labelledby="achievements-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-kicker">Recognition</p>
+          <h2 id="achievements-title">Selected achievements.</h2>
+        </div>
+        <p>Academic, research, and mathematical distinctions earned throughout my studies.</p>
+      </div>
+
+      <div class="achievement-list reveal">
+        <div class="achievement"><time datetime="2026">2026</time><p><strong>Third Prize</strong> · University-Level Scientific Research Competition, NEU</p></div>
+        <div class="achievement"><time datetime="2025">2025</time><p><strong>Top 10</strong> · Hanoi Mathematical Modeling Competition</p></div>
+        <div class="achievement"><time datetime="2024">2024</time><p><strong>Academic Encouragement Scholarship (Excellent)</strong> · NEU</p></div>
+        <div class="achievement"><time datetime="2024">2024</time><p><strong>Outstanding Youth Union Member Award</strong> · NEU</p></div>
+        <div class="achievement"><time datetime="2023">2023</time><p><strong>Consolation Prize</strong> · Hai Phong City Mathematics Competition</p></div>
+        <div class="achievement"><time datetime="2022">2022</time><p><strong>IELTS 7.0</strong></p></div>
+      </div>
+    </section>
+
+    <section class="shell section-block compact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-panel reveal">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-title">Let’s investigate a good question.</h2>
+          <p>I am open to research assistantships, collaborations, and conversations around causal ML, reliable generalization, and applied AI systems.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button" href="mailto:duonghieung0901@gmail.com">Send an email</a>
+          <a class="button secondary" href="https://github.com/dhieu0901" target="_blank" rel="noopener">View GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <span>© <span id="current-year">2026</span> Nguyen Duong Hieu</span>
+    <span>Hanoi, Vietnam · Built with semantic HTML &amp; CSS</span>
   </footer>
 
-</div>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      const menuButton = document.getElementById("menu-button");
+      const navigation = document.getElementById("site-nav");
+      const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const systemTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      const activeTheme = () => root.dataset.theme || systemTheme();
+
+      function updateThemeUi() {
+        const theme = activeTheme();
+        themeIcon.textContent = theme === "dark" ? "☀" : "◐";
+        themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+        themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+        themeToggle.title = themeToggle.getAttribute("aria-label");
+        themeMeta.setAttribute("content", theme === "dark" ? "#101916" : "#f5f2ea");
+      }
+
+      themeToggle.addEventListener("click", () => {
+        const nextTheme = activeTheme() === "dark" ? "light" : "dark";
+        root.dataset.theme = nextTheme;
+        try { localStorage.setItem("portfolio-theme", nextTheme); } catch (_) {}
+        updateThemeUi();
+      });
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = navigation.dataset.open === "true";
+        navigation.dataset.open = String(!isOpen);
+        menuButton.setAttribute("aria-expanded", String(!isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+        menuButton.firstElementChild.textContent = isOpen ? "☰" : "×";
+      });
+
+      navLinks.forEach((link) => link.addEventListener("click", () => {
+        navigation.dataset.open = "false";
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation");
+        menuButton.firstElementChild.textContent = "☰";
+      }));
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && navigation.dataset.open === "true") {
+          navigation.dataset.open = "false";
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open navigation");
+          menuButton.firstElementChild.textContent = "☰";
+          menuButton.focus();
+        }
+      });
+
+      const revealItems = document.querySelectorAll(".reveal");
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      } else {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealItems.forEach((item) => revealObserver.observe(item));
+      }
+
+      const observedSections = navLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      if ("IntersectionObserver" in window) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+          const visibleEntry = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!visibleEntry) return;
+          navLinks.forEach((link) => {
+            link.removeAttribute("aria-current");
+            if (link.getAttribute("href") === `#${visibleEntry.target.id}`) {
+              link.setAttribute("aria-current", "true");
+            }
+          });
+        }, { rootMargin: "-25% 0px -60%", threshold: [0.05, 0.2, 0.5] });
+        observedSections.forEach((section) => sectionObserver.observe(section));
+      }
+
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+      updateThemeUi();
+    })();
+  </script>
 </body>
 </html>
