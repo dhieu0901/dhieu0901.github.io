@@ -658,6 +658,21 @@
       opacity: .72;
     }
 
+    /* Full-width card for an odd last project, so the grid has no empty slot */
+    .project-card.wide {
+      grid-column: span 2;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 40px;
+      align-items: start;
+    }
+
+    .project-card.wide .project-main { display: flex; flex-direction: column; }
+    .project-card.wide .card-index { margin-bottom: 0; }
+    .project-card.wide .project-detail { align-self: end; }
+    .project-card.wide .project-detail .tag-row { margin-top: 16px; }
+
     .project-main,
     .project-aside { position: relative; z-index: 1; }
 
@@ -820,6 +835,8 @@
       .research-grid { grid-template-columns: 1fr; }
       .research-card { min-height: 210px; }
       .project-card.featured { grid-template-columns: 1fr; }
+      .project-card.wide { grid-template-columns: 1fr; }
+      .project-card.wide .project-detail { align-self: auto; margin-top: 16px; }
       .project-aside { align-self: auto; }
     }
 
@@ -855,7 +872,8 @@
       .timeline-date { text-align: left; order: 2; }
       .timeline-content { order: 1; }
       .project-grid { grid-template-columns: 1fr; }
-      .project-card.featured { grid-column: span 1; }
+      .project-card.featured,
+      .project-card.wide { grid-column: span 1; }
       .two-column { grid-template-columns: 1fr; }
       .contact-panel { grid-template-columns: 1fr; }
       .contact-actions { flex-direction: row; flex-wrap: wrap; }
@@ -1176,6 +1194,27 @@
             <a class="project-link" href="https://github.com/dhieu0901/Machine-Learning-Group-5-Final-Project" target="_blank" rel="noopener">GitHub repository ↗</a>
           </div>
         </article>
+
+        <article class="project-card wide reveal">
+          <div class="project-main">
+            <span class="card-index">04 · RELIABLE EVALUATION</span>
+            <h3>Fresh vs. Spoiled Fruit Classification</h3>
+            <p>A deep learning course project comparing three CNNs on 16 fruit-and-freshness classes, built around one question: can the reported accuracy actually be trusted?</p>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/dhieu0901/Fresh-and-Rotten-Fruit-Classification" target="_blank" rel="noopener">GitHub repository ↗</a>
+            </div>
+          </div>
+          <div class="project-detail">
+            <ul class="clean-list">
+              <li>Removed 1,273 duplicate images and built a perceptual-hash grouped split, since burst-shot near-duplicates would otherwise leak into 6.5% of a random test split.</li>
+              <li>Ran ablations on augmentation and fine-tuning depth; Grad-CAM showed the smaller CNNs sometimes attending to background rather than the fruit.</li>
+              <li>A fine-tuned MobileNetV2 reached 99.73% joint accuracy, with 6 errors on 2,203 leakage-free test images.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">MobileNetV2</span><span class="tag">Grad-CAM</span><span class="tag">Ablations</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -1194,7 +1233,7 @@
             <h3>Education</h3>
             <p class="degree">BS in Data Science in Economics and Business</p>
             <p class="institution">National Economics University</p>
-            <p class="meta">SEP 2023 — PRESENT · GPA 3.78 / 4.0</p>
+            <p class="meta">SEP 2023 — PRESENT · GPA 3.79 / 4.0</p>
             <p class="education-detail">Relevant coursework: Machine Learning, Probability &amp; Statistics, Optimization, Linear Algebra, and Data Structures &amp; Algorithms.</p>
             <hr class="education-separator">
             <p class="degree">Natural Science 1</p>
@@ -1214,7 +1253,7 @@
             </div>
             <div class="skill-group">
               <h4>Machine learning</h4>
-              <p>CatBoost, Optuna, SHAP, Sentence-BERT, BM25, LLMs, NLP, computer vision, OCR/ASR pipelines</p>
+              <p>TensorFlow/Keras, CatBoost, Optuna, SHAP, Sentence-BERT, BM25, LLMs, NLP, computer vision, OCR/ASR pipelines</p>
             </div>
             <div class="skill-group">
               <h4>Engineering</h4>
